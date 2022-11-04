@@ -16,7 +16,7 @@ export default function Header() {
     <div className="bg-white border-b shadow-sm sticky top-0">
         <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
             <div>
-                <img src="NEM MÜKÖDIK ROHADJON MEG" alt="logo" className='h-5 cursor-pointer' onClick={() => navigate("/")}/>
+                <img src="https://www.vectorlogo.zone/logos/google/google-ar21.svg" alt="logo" className='h-5 cursor-pointer' onClick={() => navigate("/")}/>
             </div>
             <div>
                 <ul className="flex space-x-10">
