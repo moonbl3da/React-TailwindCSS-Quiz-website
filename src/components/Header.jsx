@@ -16,13 +16,13 @@ export default function Header() {
     <div className="bg-white border-b shadow-sm sticky top-0">
         <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
             <div>
-                <img src="https://quadlayers.com/wp-content/uploads/2020/02/quiz-plugins-for-WordPress.png" alt="logo" className='h-12 cursor-pointer' onClick={() => navigate("/")}/>
+                <img src="https://raw.githubusercontent.com/moonbl3da/react-tailwindCSS-quiz-website/master/src/icon.png" alt="logo" className='h-12 cursor-pointer' onClick={() => navigate("/")}/>
             </div>
             <div>
                 <ul className="flex space-x-10">
-                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-600 border-b-[3px] border-b-transparent ${pathMatchRoute("/") && "text-black border-b-blue-500 "}`} onClick={() => navigate("/")}>Home</li>
-                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-600 border-b-[3px] border-b-transparent ${pathMatchRoute("/quiz") && "text-black border-b-blue-500 "}`} onClick={() => navigate("/quiz")}>Quiz</li>
-                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-600 border-b-[3px] border-b-transparent ${pathMatchRoute("/sign-in") && "text-black border-b-blue-500 "}`} onClick={() => navigate("/sign-in")}>Sign In</li>
+                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-600 border-b-[3px] border-b-transparent ${pathMatchRoute("/") && "text-black border-b-[#8c5000]"}`} onClick={() => navigate("/")}>Home</li>
+                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-600 border-b-[3px] border-b-transparent ${pathMatchRoute("/sign-up") && "text-black border-b-[#8c5000]"}`} onClick={() => navigate("/sign-up")}>Sign up</li>
+                    <li className={`cursor-pointer py-3 text-sm font-semibold text-gray-600 border-b-[3px] border-b-transparent ${pathMatchRoute("/sign-in") && "text-black border-b-[#8c5000]"}`} onClick={() => navigate("/sign-in")}>Sign In</li>
                 </ul>
             </div>
         </header>

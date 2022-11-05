@@ -2,17 +2,22 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import OAuth from '../components/OAuth';
+import { IoConstructOutline } from "react-icons/io5";
 
 export default function ForgotPassword() {
   const [email ,setEmail] = useState("");
 
 
-  function onChange(e)
+  /*function onChange(e)
   {
    setEmail(e.target.value)
-  }
+  }*/
 
   return (
+    <div className="m-0 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+      <h1 className="text-center text-red-700 text-7xl">Under construction<IoConstructOutline className="text-center text-red-700 text-6xl"/> </h1>
+    </div>
+    /*
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
 
@@ -40,6 +45,6 @@ export default function ForgotPassword() {
         </form>
         </div>
       </div>
-    </section>
+    </section>*/
   )
 }

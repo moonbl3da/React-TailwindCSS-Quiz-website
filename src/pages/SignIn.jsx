@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import {AiFillEyeInvisible,AiFillEye} from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
+import {signInWithEmailAndPassword, auth, getAuth} from "firebase/auth";
+import {toast} from "react-toastify";
+
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +16,7 @@ export default function SignIn() {
 
   const {email, password}  = formData;
 
+  const navigate = useNavigate();
   function onChange(e)
   {
     setFormData((prevState) =>( {
@@ -21,7 +25,20 @@ export default function SignIn() {
 
     }))
   }
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredentials = await signInWithEmailAndPassword(auth, email, password);
 
+      if (userCredentials.user) {
+        navigate("/");
+      }
+    } catch (error) {
+
+      toast.error("Username or password is incorrect!")
+    }
+  }
   return (
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Sign in</h1>
@@ -32,7 +49,7 @@ export default function SignIn() {
           className="w-full rounded-2xl"/>
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-        <form>
+        <form onSubmit={onSubmit}>
           <input type="email" id="email" value={email} onChange={onChange} placeholder="Enter your email address..." className="mb-6 w-full px-4 py-2 text-xl text-gray-500 bg-white border-cyan-900 rounded transition ease-in-out" />
           <div className="relative mb-6">
             <input className="w-full px-4 py-2 text-xl text-gray-500 bg-white border-cyan-900 rounded transition ease-in-out" type={showPassword ? "text" : "password"} id="password" value={password} onChange={onChange} placeholder="Enter your password..."/>
